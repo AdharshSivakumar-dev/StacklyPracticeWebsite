@@ -67,7 +67,7 @@ const About = () => {
         <div className="about-box">
           <h4>Our Mission</h4>
           <p>
-            Our mission is simple—create tools that solve real problems. With a strong focus on innovation, reliability,
+            Our mission is simple create tools that solve real problems. With a strong focus on innovation, reliability,
             and user satisfaction, we aim to enhance your experience, whether you're an individual or part of a growing business.
           </p>
         </div>
