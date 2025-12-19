@@ -1,0 +1,100 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+}
+
+.loader-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 50% 50%, rgba(47,178,255,0.15), rgba(0,0,0,0) 50%);
+  filter: blur(40px);
+}
+
+.loader-content {
+  position: relative;
+  width: min(720px, 90vw);
+  padding: 60px 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px 12px 50px 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  animation: loaderIn 400ms ease both;
+}
+
+.loader-kicker {
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-bottom: 12px;
+  will-change: opacity, transform;
+  animation: titleShimmer 2400ms ease-in-out infinite;
+}
+
+.loader-logo {
+  display: block;
+  margin: 0 auto;
+  width: clamp(200px, 40vw, 320px);
+  height: auto;
+  will-change: transform, opacity;
+  animation: logoPulse 1600ms ease-in-out infinite;
+}
+
+.loader-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(80px, 16vw, 140px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+  will-change: transform;
+  animation: ringSpin 2800ms linear infinite;
+  pointer-events: none;
+}
+
+.loader-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%) scale(4);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47,178,255,0.25) 0%, rgba(47,178,255,0.0) 70%);
+  filter: blur(18px);
+  animation: glowPulse 1600ms ease-in-out infinite;
+}
+
+@keyframes loaderIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ringSpin {
+  to { transform: translate(-50%, -50%) scale(4) rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes titleShimmer {
+  0% { filter: drop-shadow(0 0 0 rgba(47,178,255,0)); }
+  50% { filter: drop-shadow(0 0 12px rgba(47,178,255,0.35)); }
+  100% { filter: drop-shadow(0 0 0 rgba(47,178,255,0)); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(0.985); }
+  50% { transform: scale(1.015); }
+}
